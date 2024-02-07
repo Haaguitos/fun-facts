@@ -5,6 +5,9 @@ export default {
 		extend: {
 			fontFamily: {
 				heading: ['Caveat', 'system-ui', '-apple-system', 'sans-serif']
+			},
+			colors: {
+				'custom-gray': '#7B7B7B'
 			}
 		}
 	},
