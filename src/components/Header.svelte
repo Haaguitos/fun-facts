@@ -12,6 +12,8 @@
             about
         </a>
 
-        <Languages />
+        <button>
+            <Languages />
+        </button>
     </div>
 </header>

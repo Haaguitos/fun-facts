@@ -1,19 +1,16 @@
-<script>
-	// import { cards } from './cards.js';
+<script lang="ts">
+	import { Search } from "lucide-svelte"
+	import FactCard from "../components/FactCard.svelte"
+	import { cards } from "../content/cards"
 
-	import { Search } from "lucide-svelte";
-	import FactCard from "../components/FactCard.svelte";
-
-  
-	let searchTerm = '';
-  
-	// function filterCards() {
-	//   return cards.filter(card => {
-	// 	return card.title.toLowerCase().includes(searchTerm.toLowerCase());
-	//   });
-	// }
-  
-	// $: filteredCards = filterCards();
+	let searchTerm = ''
+	let filteredCards: {content: string }[] = cards
+	
+	function filterCards() {
+	  filteredCards = cards.filter(card => {
+		return card.content.toLowerCase().includes(searchTerm.toLowerCase())
+	  })
+	}
 </script>
 
 <svelte:head>
@@ -29,21 +26,27 @@
 				type="text" 
 				bind:value={searchTerm} 
 				placeholder="search for a fact!" 
+				autocomplete="off"
+				on:input={filterCards}
 			/>
 
-			<Search class="absolute right-4 top-1/2 -translate-y-1/2 text-custom-gray" />
+			<Search class="absolute right-4 top-1/2 -translate-y-1/2 text-custom-gray pointer-events-none" />
 		</form>
 
-		<p class="text-end text-custom-gray"><b>8</b> of <b>bizentos</b> facts</p>
+		<p class="text-end text-custom-gray"><b>{filteredCards.length}</b> of <b>{cards.length}</b> facts</p>
 	</section>	
   
-	<section class="grid grid-cols-[repeat(auto-fill,300px)] w-full justify-center gap-x-4 gap-y-8">
-		<FactCard />
-		<FactCard />
-		<FactCard />
-		<FactCard />
-		<FactCard />
-		<FactCard />
-		<FactCard />
-	</section>
+	{#if filteredCards.length === 0}
+		<section class="py-64">
+			<p class="text-[3vw]">
+				No results! :(
+			</p>
+		</section>
+	{:else}
+		<section class="grid grid-cols-[repeat(auto-fill,300px)] w-full justify-center gap-x-4 gap-y-8">
+			{#each filteredCards as card}
+				<FactCard {card} />
+			{/each}
+		</section>
+	{/if}
 </div>
