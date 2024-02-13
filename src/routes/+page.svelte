@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
+
 	import { Search } from "lucide-svelte"
 	import FactCard from "../components/FactCard.svelte"
 	import { cards } from "../content/cards"
@@ -14,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Fatonhos</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
@@ -25,7 +27,7 @@
 				class="border-b-[1px] border-custom-gray p-4 pr-14 w-full text-custom-gray"
 				type="text" 
 				bind:value={searchTerm} 
-				placeholder="search for a fact!" 
+				placeholder={$_('main.search')}
 				autocomplete="off"
 				on:input={filterCards}
 			/>
@@ -39,7 +41,8 @@
 	{#if filteredCards.length === 0}
 		<section class="py-64">
 			<p class="text-[3vw]">
-				No results! :(
+				<!-- No results! :( -->
+				{$_('main.empty')}
 			</p>
 		</section>
 	{:else}
