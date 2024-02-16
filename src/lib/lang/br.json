@@ -2,6 +2,7 @@
 	"main": {
 		"about": "sobre",
 		"search": "procure por um fato!",
-		"empty": "Sem resultados! :("
+		"empty": "Sem resultados! :(",
+		"facts": "<b>{count}</b> de <b>{total}</b> fatos"
 	}
 }

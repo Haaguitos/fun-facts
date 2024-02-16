@@ -1,6 +1,8 @@
 <script lang="ts">
+    import { locale } from 'svelte-i18n';
+    
     interface CardProps {
-        content: string;
+        content: { [key: string]: string }[] }
     }
 
     const colors = ["#FFDE53", "#4EC5D4", "#FEC6FF"]
@@ -14,7 +16,7 @@
     style="background-color: {randomColor}"
 >
     <p class="text-2xl">
-        {card.content}
+        {card.content[locale]}
     </p>
 
     <p class="font-heading text-2xl text-end">

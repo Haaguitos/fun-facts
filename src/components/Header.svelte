@@ -1,13 +1,13 @@
 <script lang="ts">
-    import {_, locale} from 'svelte-i18n';
+    import {_, locale} from 'svelte-i18n'
     import { Languages } from 'lucide-svelte'
 
-    let value: string = 'en';
+    let value: string = 'en'
 
-    const handleLocaleChange = (event: any) => {
+    const handleLocaleChange = (event: Event) => {
         event.preventDefault();
-        const value = event?.target?.value;
-        $locale = value;
+        const newLocale = (event.target as HTMLSelectElement).value
+        locale.set(newLocale)
     }
 </script>
   
@@ -27,8 +27,8 @@
 
         <div>
             <select {value} on:change={handleLocaleChange}>
-                <option value="en" selected>{$_('locale-switch.lang.en')}</option>
-                <option value="pt-BR">{$_('locale-switch.lang.br')}</option>
+                <option value="en" selected>en</option>
+                <option value="pt-BR">pt-BR</option>
             </select>
         </div>
     </div>

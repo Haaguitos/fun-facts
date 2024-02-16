@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 
 	import { Search } from "lucide-svelte"
 	import FactCard from "../components/FactCard.svelte"
@@ -22,7 +22,7 @@
 
 <div class="flex flex-col gap-10 items-center">
 	<section class="flex flex-col gap-2 w-full max-w-[600px]">
-		<form class="relative">
+		<form class="relative" on:submit|preventDefault>
 			<input 
 				class="border-b-[1px] border-custom-gray p-4 pr-14 w-full text-custom-gray"
 				type="text" 
@@ -35,13 +35,14 @@
 			<Search class="absolute right-4 top-1/2 -translate-y-1/2 text-custom-gray pointer-events-none" />
 		</form>
 
-		<p class="text-end text-custom-gray"><b>{filteredCards.length}</b> of <b>{cards.length}</b> facts</p>
+		<p class="text-end text-custom-gray">
+			{@html ($_('main.facts', { values: { count: filteredCards.length, total: cards.length }}))}
+		</p>
 	</section>	
   
 	{#if filteredCards.length === 0}
 		<section class="py-64">
 			<p class="text-[3vw]">
-				<!-- No results! :( -->
 				{$_('main.empty')}
 			</p>
 		</section>
