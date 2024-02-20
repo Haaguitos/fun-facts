@@ -1,18 +1,28 @@
 <script lang="ts">
-	import { _, locale } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n'
 
 	import { Search } from "lucide-svelte"
 	import FactCard from "../components/FactCard.svelte"
 	import { cards } from "../content/cards"
+	import { isLocaleLoaded } from '$lib/i18n';
 
 	let searchTerm = ''
-	let filteredCards: {content: string }[] = cards
+	let filteredCards: {content: { [key: string]: string } }[] = cards
+
+	const language = String($locale)
 	
 	function filterCards() {
-	  filteredCards = cards.filter(card => {
-		return card.content.toLowerCase().includes(searchTerm.toLowerCase())
-	  })
+		filteredCards = cards.filter(card => {
+    		const validLanguage = language as keyof typeof card.content;
+			const content = card.content[validLanguage];
+			if (content) {
+				return content.toLowerCase().includes(searchTerm.toLowerCase())
+			}
+			return false;
+		})
 	}
+
+	console.log("language", language)
 </script>
 
 <svelte:head>
