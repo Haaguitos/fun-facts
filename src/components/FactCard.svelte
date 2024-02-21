@@ -1,17 +1,8 @@
-<script lang="ts">  
-	import { locale } from 'svelte-i18n'
-    interface CardProps { 
-        content: {
-            [key: string]: string 
-        }
-    }    
-
+<script lang="ts">
     const colors = ["#FFDE53", "#4EC5D4", "#FEC6FF"]
     const randomColor = colors[Math.floor(Math.random() * colors.length)]
-    // Definir $language como uma chave válida em card.content
-    const validLanguage = $locale as keyof typeof card.content;
 
-    export let card: CardProps
+    export let content: string
 </script>
   
 <div 
@@ -19,7 +10,7 @@
     style="background-color: {randomColor}"
 >
     <p class="text-2xl">
-        {card.content[validLanguage]}
+        {content}
     </p>
 
     <p class="font-heading text-2xl text-end">

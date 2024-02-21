@@ -1,15 +1,14 @@
 <script lang="ts">
 	import { _, locale } from 'svelte-i18n'
 
-	import { Search } from "lucide-svelte"
-	import FactCard from "../components/FactCard.svelte"
-	import { cards } from "../content/cards"
-	import { isLocaleLoaded } from '$lib/i18n';
+	import { Search } from 'lucide-svelte'
+	import FactCard from '../components/FactCard.svelte'
+	import { cards } from '../content/cards'
 
 	let searchTerm = ''
 	let filteredCards: {content: { [key: string]: string } }[] = cards
 
-	const language = String($locale)
+	$: language = String($locale)
 	
 	function filterCards() {
 		filteredCards = cards.filter(card => {
@@ -22,7 +21,7 @@
 		})
 	}
 
-	console.log("language", language)
+	$: filterCards()
 </script>
 
 <svelte:head>
@@ -59,7 +58,7 @@
 	{:else}
 		<section class="grid grid-cols-[repeat(auto-fill,300px)] w-full justify-center gap-x-4 gap-y-8">
 			{#each filteredCards as card}
-				<FactCard {card} />
+				<FactCard content={card.content[language]} />
 			{/each}
 		</section>
 	{/if}
