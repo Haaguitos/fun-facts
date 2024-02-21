@@ -2,12 +2,17 @@
 	import "../app.css";
 	import Footer from "../components/Footer.svelte";
 	import Header from "../components/Header.svelte";
+	import { isLocaleLoaded } from "$lib/i18n";
 </script>
 
 <div class="flex flex-col min-h-screen max-w-[90rem] mx-auto">
 	<Header />
 	<main>
-		<slot />
+        {#if $isLocaleLoaded}
+            <slot />
+        {:else}
+            <div>Loading...</div>
+        {/if}
 	</main>
 	<Footer />
 </div>

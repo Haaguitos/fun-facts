@@ -1,6 +1,16 @@
 export const cards = [
 	{
-		content:
-			"a palavra cibernético vem do grego  kubernētikós 'relativo a piloto ou dirigente, ao que governa'"
+		content: {
+			'pt-BR':
+				'A palavra "cibernético" vem da palavra grega "kubernētikós", que significa "relativo a um piloto ou líder, aquele que governa".',
+			en: 'The word "cybernetic" comes from the Greek word "kubernētikós" meaning "relating to a pilot or leader, one who steers."'
+		}
+	},
+	{
+		content: {
+			'pt-BR':
+				'A palavra "cibernético" vem da palavra grega "kubernētikós", que significa "relativo a um piloto ou líder, aquele que governa".',
+			en: 'The word "cybernetic" comes from the Greek word "kubernētikós" meaning "relating to a pilot or leader, one who steers."'
+		}
 	}
 ];

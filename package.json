@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"lucide-svelte": "^0.323.0"
+		"lucide-svelte": "^0.323.0",
+		"svelte-i18n": "^4.0.0"
 	}
 }
