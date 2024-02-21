@@ -2,12 +2,12 @@ import { browser } from '$app/environment';
 import { derived } from 'svelte/store';
 import { init, register, locale, _ } from 'svelte-i18n';
 
-register('en', () => import('./lang/en.json'));
+register('en-US', () => import('./lang/en.json'));
 register('pt-BR', () => import('./lang/br.json'));
 
 init({
-	initialLocale: browser ? window.navigator.language : 'en',
-	fallbackLocale: 'en'
+	initialLocale: browser ? window.navigator.language : 'en-US',
+	fallbackLocale: 'en-US'
 });
 
 const isLocaleLoaded = derived(locale, ($locale) => typeof $locale === 'string');

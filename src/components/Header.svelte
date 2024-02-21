@@ -2,7 +2,7 @@
     import {_, locale} from 'svelte-i18n'
     import { Languages } from 'lucide-svelte'
 
-    let value: string = 'en'
+    let value: string = 'en-US'
 
     const handleLocaleChange = (event: Event) => {
         event.preventDefault();
@@ -27,7 +27,7 @@
 
         <div>
             <select {value} on:change={handleLocaleChange}>
-                <option value="en" selected>en</option>
+                <option value="en-US" selected>en</option>
                 <option value="pt-BR">pt-BR</option>
             </select>
         </div>
