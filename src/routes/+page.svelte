@@ -21,7 +21,11 @@
 		})
 	}
 
-	$: filterCards()
+	
+    $: {
+        filterCards()
+		filteredCards
+    }
 </script>
 
 <svelte:head>
