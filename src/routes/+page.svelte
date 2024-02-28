@@ -37,7 +37,7 @@
 	<section class="flex flex-col gap-2 w-full max-w-[600px]">
 		<form class="relative" on:submit|preventDefault>
 			<input 
-				class="border-b-[1px] border-custom-gray p-4 pr-14 w-full text-custom-gray"
+				class="border-b-[1px] border-custom-gray p-4 bg-transparent pr-14 w-full text-custom-gray"
 				type="text" 
 				bind:value={searchTerm} 
 				placeholder={$_('main.search')}

@@ -5,16 +5,18 @@
 	import { isLocaleLoaded } from "$lib/i18n";
 </script>
 
-<div class="flex flex-col min-h-screen max-w-[90rem] mx-auto">
-	<Header />
-	<main>
-        {#if $isLocaleLoaded}
-            <slot />
-        {:else}
-            <div>Loading...</div>
-        {/if}
-	</main>
-	<Footer />
+<div class="dark:bg-custom-gray">
+	<div class="flex flex-col min-h-screen max-w-[90rem] mx-auto">
+		<Header />
+		<main>
+			{#if $isLocaleLoaded}
+				<slot />
+			{:else}
+				<div>Loading...</div>
+			{/if}
+		</main>
+		<Footer />			
+	</div>
 </div>
 
 <style>

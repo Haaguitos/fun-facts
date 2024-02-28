@@ -1,6 +1,7 @@
 <script lang="ts">
     import {_, locale} from 'svelte-i18n'
     import { Languages } from 'lucide-svelte'
+	import ThemeSwitcher from './ThemeSwitcher.svelte';
 
     let value: string = 'en-US'
 
@@ -16,7 +17,7 @@
         fatonhos
     </a>
 
-    <div class="flex flex-row gap-4">
+    <div class="flex flex-row items-center gap-4">
         <a href={'/about'}>
             about
         </a>
@@ -24,6 +25,8 @@
         <button>
             <Languages />
         </button>
+
+        <ThemeSwitcher />
 
         <div>
             <select {value} on:change={handleLocaleChange}>
