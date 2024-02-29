@@ -5,7 +5,7 @@
 	import { isLocaleLoaded } from "$lib/i18n";
 </script>
 
-<div class="dark:bg-custom-gray">
+<div class="bg-white dark:bg-custom-gray">
 	<div class="flex flex-col min-h-screen max-w-[90rem] mx-auto">
 		<Header />
 		<main>

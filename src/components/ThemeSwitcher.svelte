@@ -1,25 +1,35 @@
 <script lang="ts">
     import { Moon, Sun } from "lucide-svelte";
-    import { onDestroy } from "svelte";
+    import { onDestroy, onMount } from "svelte";
+    import { browser } from '$app/environment';
 
     let colorMode = "light";
 
     const setColorMode = (mode: string) => {
         colorMode = mode;
+        if (browser) {
+            if (colorMode === "dark") {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        }
     };
 
-    // Adicionar/remover a classe dark/light ao document.body
-    $: {
-        if (colorMode === "dark") {
-            document.body.classList.add("dark");
-        } else {
-            document.body.classList.remove("dark");
-        }
+    if (browser) {
+        onMount(() => {
+            if (colorMode === "dark") {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        });
     }
 
-    // Remove o observador quando o componente for destruído
     onDestroy(() => {
-        document.body.classList.remove("dark");
+        if (browser) {
+            document.body.classList.remove("dark");
+        }
     });
 </script>
 

@@ -1,8 +1,26 @@
 <script lang="ts">
-    const colors = ["#FFDE53", "#4EC5D4", "#FEC6FF"]
-    const randomColor = colors[Math.floor(Math.random() * colors.length)]
+    import { browser } from '$app/environment';
+    import { onMount } from 'svelte';
 
-    export let content: string
+    let isDarkMode = false;
+
+    onMount(() => {
+        if (browser) {    
+            isDarkMode = document.body.classList.contains("dark");
+        }
+    });
+
+    const lightColors = ["#FFDE53", "#4EC5D4", "#FEC6FF"];
+    const darkColors = ["#AD8B00", "#2A5B54", "#831A56"];
+    let colors = isDarkMode ? darkColors : lightColors;
+
+    $: {
+        colors = isDarkMode ? darkColors : lightColors;
+    }
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    export let content: string;
 </script>
   
 <div 
