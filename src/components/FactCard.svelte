@@ -5,26 +5,27 @@
     let isDarkMode = false;
 
     onMount(() => {
-        if (browser) {    
+        if (browser) {
             isDarkMode = document.body.classList.contains("dark");
+            const observer = new MutationObserver(() => {
+                isDarkMode = document.body.classList.contains("dark");
+            });
+            observer.observe(document.body, { attributes: true });
         }
     });
 
     const lightColors = ["#FFDE53", "#4EC5D4", "#FEC6FF"];
     const darkColors = ["#AD8B00", "#2A5B54", "#831A56"];
-    let colors = isDarkMode ? darkColors : lightColors;
 
-    $: {
-        colors = isDarkMode ? darkColors : lightColors;
-    }
+    $: colors = isDarkMode ? darkColors : lightColors;
 
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    $: randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     export let content: string;
 </script>
   
 <div 
-    class="flex flex-col justify-between size-[300px] p-4 rotate-[-4deg]"
+    class="flex flex-col justify-between size-[300px] p-4 rotate-[-4deg] dark:text-custom-white"
     style="background-color: {randomColor}"
 >
     <p class="text-2xl">

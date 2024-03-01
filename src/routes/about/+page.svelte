@@ -3,7 +3,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div class="flex flex-col gap-10 items-start max-w-prose mx-auto py-10">
+<div class="flex flex-col gap-10 items-start max-w-prose mx-auto py-10 dark:text-custom-white">
     <h1 class="text-4xl font-bold">
 		About
 	</h1>

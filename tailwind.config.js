@@ -7,7 +7,9 @@ export default {
 				heading: ['Caveat', 'system-ui', '-apple-system', 'sans-serif']
 			},
 			colors: {
-				'custom-gray': '#7B7B7B'
+				'custom-gray': '#7B7B7B',
+				'bg-gray': '#302B2B',
+				'custom-white': '#D6D6D6'
 			}
 		}
 	},

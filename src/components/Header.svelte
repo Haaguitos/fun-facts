@@ -12,8 +12,8 @@
     }
 </script>
   
-<header class="flex justify-between py-4 px-5 items-center">
-    <a href={'/'} class='font-heading text-2xl font-bold'>
+<header class="flex justify-between py-4 px-5 items-center dark:text-custom-white">
+    <a href={'/'} class='font-heading text-2xl font-bold '>
         fatonhos
     </a>
 
