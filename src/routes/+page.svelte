@@ -5,19 +5,22 @@
 	import FactCard from '../components/FactCard.svelte'
 	import { cards } from '../content/cards'
 
+	type Card = { content: { [key: string]: string }, color: number }
+
+	const initialCards: Card[] = cards.map(card => ({ ...card, color: Math.floor(Math.random() * 3) }))
 	let searchTerm = ''
-	let filteredCards: {content: { [key: string]: string } }[] = cards
+	let filteredCards: Card[] = initialCards
 
 	$: language = String($locale)
 	
 	function filterCards() {
-		filteredCards = cards.filter(card => {
-    		const validLanguage = language as keyof typeof card.content;
-			const content = card.content[validLanguage];
+		filteredCards = initialCards.filter(card => {
+    		const validLanguage = language as keyof typeof card.content
+			const content = card.content[validLanguage]
 			if (content) {
 				return content.toLowerCase().includes(searchTerm.toLowerCase())
 			}
-			return false;
+			return false
 		})
 	}
 
@@ -61,8 +64,8 @@
 		</section>
 	{:else}
 		<section class="grid grid-cols-[repeat(auto-fill,300px)] w-full justify-center gap-x-4 gap-y-8">
-			{#each filteredCards as card}
-				<FactCard content={card.content[language]} />
+			{#each filteredCards as card, index}
+				<FactCard content={card.content[language]} color={card.color} number={index + 1} />
 			{/each}
 		</section>
 	{/if}
