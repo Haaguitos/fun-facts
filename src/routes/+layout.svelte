@@ -1,20 +1,20 @@
 <script>
-	import "../app.css";
-	import Footer from "../components/Footer.svelte";
-	import Header from "../components/Header.svelte";
-	import { isLocaleLoaded } from "$lib/i18n";
+	import "../app.css"
+	import Footer from "../components/Footer.svelte"
+	import Header from "../components/Header.svelte"
+	import { isLocaleLoaded } from "$lib/i18n"
 </script>
 
 <div class="bg-white dark:bg-bg-gray transition-all">
 	<div class="flex flex-col min-h-screen max-w-[90rem] mx-auto">
-		<Header />
-		<main>
 			{#if $isLocaleLoaded}
-				<slot />
+				<Header />
+				<main>
+					<slot />
+				</main>
 			{:else}
 				<div>Loading...</div>
 			{/if}
-		</main>
 		<Footer />			
 	</div>
 </div>

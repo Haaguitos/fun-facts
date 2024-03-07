@@ -1,9 +1,13 @@
 <script lang="ts">
     import {_, locale} from 'svelte-i18n'
     import { Languages } from 'lucide-svelte'
-	import ThemeSwitcher from './ThemeSwitcher.svelte';
-
+    import ThemeSwitcher from './ThemeSwitcher.svelte'
+    import { isLocaleLoaded } from "$lib/i18n"
+    
     let value: string = 'en-US'
+
+    $: language = String($locale)
+    $: value = language
 
     const handleLocaleChange = (event: Event) => {
         event.preventDefault();
@@ -19,7 +23,7 @@
 
     <div class="flex flex-row items-center gap-4">
         <a href={'/about'}>
-            about
+            {$_('main.about')}
         </a>
 
         <button>
@@ -28,11 +32,18 @@
 
         <ThemeSwitcher />
 
-        <div>
-            <select {value} on:change={handleLocaleChange}>
-                <option value="en-US" selected>en</option>
-                <option value="pt-BR">pt-BR</option>
-            </select>
-        </div>
+        
+		{#if $isLocaleLoaded}
+            <div>
+                <select
+                    bind:value 
+                    on:change={handleLocaleChange}
+                    class="bg-transparent dark:text-custom-white"
+                >
+                    <option value="en-US">en</option>
+                    <option value="pt-BR">pt-BR</option>
+                </select>
+            </div>
+        {/if}
     </div>
 </header>

@@ -12,7 +12,7 @@
 	let filteredCards: Card[] = initialCards
 
 	$: language = String($locale)
-	
+
 	function filterCards() {
 		filteredCards = initialCards.filter(card => {
     		const validLanguage = language as keyof typeof card.content
@@ -58,7 +58,7 @@
   
 	{#if filteredCards.length === 0}
 		<section class="py-64">
-			<p class="text-[3vw]">
+			<p class="text-[3vw] dark:text-custom-white">
 				{$_('main.empty')}
 			</p>
 		</section>
