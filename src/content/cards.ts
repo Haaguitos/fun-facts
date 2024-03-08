@@ -12,5 +12,11 @@ export const cards = [
 			'pt-BR': 'Oreo é o 90º nome mais popular de cachorro',
 			'en-US': 'Oreo is the 90th most popular dog name'
 		}
+	},
+	{
+		content: {
+			'pt-BR': 'Piccolo é o personagem de Dragon Ball favorito do Akira Toriyama',
+			'en-US': "Piccolo is Akira Toriyama's Favorite Dragon Ball Character"
+		}
 	}
 ];
