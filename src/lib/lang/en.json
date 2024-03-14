@@ -4,5 +4,11 @@
 		"search": "search for a fact!",
 		"empty": "No results! :(",
 		"facts": "<b>{count}</b> of <b>{total}</b> facts"
+	},
+	"about": {
+		"title": "About",
+		"what": "What is",
+		"truth": "Are any of these facts true?",
+		"techs": "What was used to make this site?"
 	}
 }
