@@ -7,8 +7,13 @@
 	},
 	"about": {
 		"title": "About",
-		"what": "What is",
-		"truth": "Are any of these facts true?",
-		"techs": "What was used to make this site?"
+		"whatQuestion": "What is",
+		"whatAnswer": "Fatonhos is a tiny website to display tiny facts that I find curious or funny, usually mentioned suddenly to someone I'm talking to (which may not always be good)!",
+		"veracityQuestion": "Are any of these facts true?",
+		"veracityAnswer": "I believe so. If not, that’s my bad, I’m not that strong at fact checking.",
+		"techsQuestion": "What was used to make this site?",
+		"techsAnswerStart": "One of the things that compelled me to make this site was testing the",
+		"techsAnswerMiddle": " framework, using",
+		"techsAnswerEnd": " for styling. It ended up working out really well!"
 	}
 }

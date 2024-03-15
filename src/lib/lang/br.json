@@ -7,8 +7,13 @@
 	},
 	"about": {
 		"title": "Sobre",
-		"what": "O que é",
-		"truth": "Algum desses fatos é verdade?",
-		"techs": "O que foi usado para fazer esse site?"
+		"whatQuestion": "O que é",
+		"whatAnswer": "Fatonhos é um pequeno site para exibir pequenos fatos que eu acho curiosos ou divertidos, normalmente citados repentinamente pra alguma pessoa com a qual eu esteja conversando (o que nem sempre pode ser bom)! ",
+		"veracityQuestion": "Algum desses fatos é verdade?",
+		"veracityAnswer": "Acho que todos são verdade. Se não forem, erro meu, meu forte não é verificar os fatos.",
+		"techsQuestion": "O que foi usado para fazer esse site?",
+		"techsAnswerStart": "Uma das coisas que me compeliu a fazer esse site foi testar o framework",
+		"techsAnswerMiddle": ", utilizando",
+		"techsAnswerEnd": " para estilização. Acabou que deu muito certo!"
 	}
 }
