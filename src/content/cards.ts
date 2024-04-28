@@ -18,5 +18,11 @@ export const cards = [
 			'pt-BR': 'Piccolo é o personagem de Dragon Ball favorito do Akira Toriyama',
 			'en-US': "Piccolo is Akira Toriyama's Favorite Dragon Ball Character"
 		}
+	},
+	{
+		content: {
+			'pt-BR': 'O melão é uma hortaliça',
+			'en-US': 'Melon is a vegetable'
+		}
 	}
 ];
